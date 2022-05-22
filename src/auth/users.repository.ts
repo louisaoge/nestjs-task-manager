@@ -10,6 +10,10 @@ export class UserRepository extends Repository<User> {
       username,
       password,
     });
-    await this.save(user);
+    try {
+      await this.save(user);
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
